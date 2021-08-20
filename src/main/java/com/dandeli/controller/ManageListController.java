@@ -41,6 +41,7 @@ public class ManageListController {
 	@PutMapping("/updateManageList")  
 	private ManageListBean update(@RequestBody ManageListBean managelist)   
 	{  
+		System.out.print(managelist);
 		manageservice.saveOrUpdate(managelist);  
 	return managelist;  
 	} 
