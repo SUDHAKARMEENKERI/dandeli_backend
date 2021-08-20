@@ -20,6 +20,7 @@ import com.dandeli.service.ManageListService;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin
 public class ManageListController {
 	
 	@Autowired
