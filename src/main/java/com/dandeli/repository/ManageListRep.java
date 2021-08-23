@@ -7,3 +7,4 @@ import com.dandeli.model.ManageListBean;
 public interface ManageListRep extends JpaRepository<ManageListBean, Integer>{
 
 }
+

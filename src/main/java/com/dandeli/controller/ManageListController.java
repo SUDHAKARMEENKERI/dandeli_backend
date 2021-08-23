@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dandeli.model.ManageListBean;
+import com.dandeli.model.SystemUsersBean;
+import com.dandeli.repository.SystemUserListRep;
 import com.dandeli.service.ManageListService;
+import com.dandeli.service.SystemUserService;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 
@@ -42,20 +45,22 @@ public class ManageListController {
 	@PutMapping("/updateManageList")  
 	private ManageListBean update(@RequestBody ManageListBean managelist)   
 	{  
-		System.out.print(managelist);
 		manageservice.saveOrUpdate(managelist);  
 	return managelist;  
 	} 
 	
+	
 	@GetMapping("/getManageListById/{id}")  
-	private ManageListBean getBooks(@PathVariable("id") int id)   
+	private ManageListBean getManageList(@PathVariable("id") int id)   
 	{  
 	return manageservice.getManageListById(id);  
 	} 
 
 	@DeleteMapping("/deleteManageListById/{id}")  
-	private void deleteBook(@PathVariable("id") int id)   
+	private void deleteManageList(@PathVariable("id") int id)   
 	{  
 		manageservice.delete(id);  
-	}  
+	} 
+	
+ 
 }
