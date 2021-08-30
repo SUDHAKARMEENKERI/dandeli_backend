@@ -66,13 +66,9 @@ public class SystemUserController {
 	reg_Response.put("Message", flage);
 	
 	for(int i = 0; i < user.size(); i++) {
-		if(user.get(i).getEmail().equals(userLogin.getEmail()) && user.get(i).getPassword().equals(userLogin.getPassword())) {
-			flage = true;
+		if(userLogin.getEmail().equals(user.get(i).getEmail()) && userLogin.getPassword().equals(user.get(i).getPassword()))  {
+			flage = true; 
 			reg_Response.put("Message", flage);
-			return reg_Response;
-		}else {
-			reg_Response.put("Message", flage);
-			return reg_Response;
 		}
 	}
 	return reg_Response;
