@@ -1,5 +1,7 @@
 package com.dandeli.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +26,7 @@ public class ManageListBean {
 	public String closeTime;
 	public String logo;
 	public String coverPhoto;
-	public String gallery;
+	public ArrayList gallery;
 	public String otherDetails;
 	
 	public ManageListBean() {
@@ -32,7 +34,7 @@ public class ManageListBean {
 	}
 	
 	public ManageListBean(int id, String name, String category, String contactNo, String address, String email,
-			String openTime, String closeTime, String logo, String coverPhoto, String gallery, String otherDetails) {
+			String openTime, String closeTime, String logo, String coverPhoto, ArrayList gallery, String otherDetails) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -119,11 +121,11 @@ public class ManageListBean {
 		this.coverPhoto = coverPhoto;
 	}
 
-	public String getGallery() {
+	public ArrayList getGallery() {
 		return gallery;
 	}
 
-	public void setGallery(String gallery) {
+	public void setGallery(ArrayList gallery) {
 		this.gallery = gallery;
 	}
 
