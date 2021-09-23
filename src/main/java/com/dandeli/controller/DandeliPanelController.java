@@ -65,12 +65,12 @@ public class DandeliPanelController {
 		return adverticementData.getId();
 	}
 	
-	@PutMapping("/updateBanner")
+	@PutMapping("/updateAdverticement")
 	private AdverticementBean updateBanner(@RequestBody AdverticementBean adverticementData) {
 		dandeli_service.saveOrUpdateAdverticementList(adverticementData);
 		return adverticementData;
 	}
-	@DeleteMapping("/deleteBannerById/{id}")
+	@DeleteMapping("/deleteAdverticementById/{id}")
 	private void AdverticementDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteAdverticementList(id);
 	}
@@ -84,13 +84,13 @@ public class DandeliPanelController {
 	}
 
 	@PostMapping("/addEmergencyContact")
-	private int addAdverticementList(@RequestBody EmergencyContactBean emergencylist) {
+	private int addEmergencyContactList(@RequestBody EmergencyContactBean emergencylist) {
 		dandeli_service.saveOrUpdateEmergencyContactList(emergencylist);
 		return emergencylist.getId();
 	}
 	
 	@PutMapping("/updateEmergencyContact")
-	private EmergencyContactBean updateBanner(@RequestBody EmergencyContactBean emergencylist) {
+	private EmergencyContactBean updateEmergencyContact(@RequestBody EmergencyContactBean emergencylist) {
 		dandeli_service.saveOrUpdateEmergencyContactList(emergencylist);
 		return emergencylist;
 	}
@@ -99,7 +99,3 @@ public class DandeliPanelController {
 		dandeli_service.deleteAdverticementList(id);
 	}
 }
-
-
-
-
