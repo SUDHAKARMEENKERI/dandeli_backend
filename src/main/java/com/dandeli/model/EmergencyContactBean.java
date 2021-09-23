@@ -20,6 +20,7 @@ public class EmergencyContactBean {
 	public String phoneNo;
 	public String email;
 	public String link;
+	public String address;
 	public String logo;
 	public ArrayList images;
 	
@@ -27,14 +28,15 @@ public class EmergencyContactBean {
 		
 	}
 
-	public EmergencyContactBean(int id, String name, String phoneNo, String email, String link, String logo,
-			ArrayList images) {
+	public EmergencyContactBean(int id, String name, String phoneNo, String email, String link, String address,
+			String logo, ArrayList images) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.phoneNo = phoneNo;
 		this.email = email;
 		this.link = link;
+		this.address = address;
 		this.logo = logo;
 		this.images = images;
 	}
@@ -79,6 +81,14 @@ public class EmergencyContactBean {
 		this.link = link;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getLogo() {
 		return logo;
 	}
@@ -99,6 +109,7 @@ public class EmergencyContactBean {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((images == null) ? 0 : images.hashCode());
@@ -118,6 +129,11 @@ public class EmergencyContactBean {
 		if (getClass() != obj.getClass())
 			return false;
 		EmergencyContactBean other = (EmergencyContactBean) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -155,8 +171,8 @@ public class EmergencyContactBean {
 
 	@Override
 	public String toString() {
-		return "EmergencyContactBean [id=" + id + ", name=" + name + ", phoneNo=" + phoneNo + ", email=" + email + ", link="
-				+ link + ", logo=" + logo + ", images=" + images + "]";
+		return "EmergencyContactBean [id=" + id + ", name=" + name + ", phoneNo=" + phoneNo + ", email=" + email
+				+ ", link=" + link + ", address=" + address + ", logo=" + logo + ", images=" + images + "]";
 	}
 	
 }
