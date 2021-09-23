@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dandeli.model.AdverticementBean;
 import com.dandeli.model.BannerListBean;
+import com.dandeli.model.EmergencyContactBean;
 import com.dandeli.service.DandeliPanelService;
 
 @RestController
@@ -25,8 +27,10 @@ public class DandeliPanelController {
 	@Autowired
 	public DandeliPanelService dandeli_service;
 	
+	/*---------------------BANNER APIS --------------------*/
+	
 	@GetMapping("/getBannerlist")  
-	private List<BannerListBean> getAllManageList()   
+	private List<BannerListBean> getAllBannerList()   
 	{  
 		return dandeli_service.getAllBannerList();  
 	}
@@ -45,6 +49,54 @@ public class DandeliPanelController {
 	@DeleteMapping("/deleteBannerById/{id}")
 	private void BannerDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteBannerList(id);
+	}
+	
+	/*---------------------ADVERTICEMENT APIS --------------------*/
+	
+	@GetMapping("/getAdverticementlist")  
+	private List<AdverticementBean> getAllAdverticement()   
+	{  
+		return dandeli_service.getAllAdverticementList();  
+	}
+
+	@PostMapping("/addAdverticement")
+	private int addAdverticementList(@RequestBody AdverticementBean adverticementData) {
+		dandeli_service.saveOrUpdateAdverticementList(adverticementData);
+		return adverticementData.getId();
+	}
+	
+	@PutMapping("/updateBanner")
+	private AdverticementBean updateBanner(@RequestBody AdverticementBean adverticementData) {
+		dandeli_service.saveOrUpdateAdverticementList(adverticementData);
+		return adverticementData;
+	}
+	@DeleteMapping("/deleteBannerById/{id}")
+	private void AdverticementDeleteById(@PathVariable("id") int id) {
+		dandeli_service.deleteAdverticementList(id);
+	}
+	
+	/*---------------------Emergency Contact APIS --------------------*/
+	
+	@GetMapping("/getAllEmergencyContactlist")  
+	private List<EmergencyContactBean> getAllEmergencyContact()   
+	{  
+		return dandeli_service.getAllEmergencyContactList();  
+	}
+
+	@PostMapping("/addEmergencyContact")
+	private int addAdverticementList(@RequestBody EmergencyContactBean emergencylist) {
+		dandeli_service.saveOrUpdateEmergencyContactList(emergencylist);
+		return emergencylist.getId();
+	}
+	
+	@PutMapping("/updateEmergencyContact")
+	private EmergencyContactBean updateBanner(@RequestBody EmergencyContactBean emergencylist) {
+		dandeli_service.saveOrUpdateEmergencyContactList(emergencylist);
+		return emergencylist;
+	}
+	@DeleteMapping("/deleteEmergencyContactById/{id}")
+	private void EmergencyContactDeleteById(@PathVariable("id") int id) {
+		dandeli_service.deleteAdverticementList(id);
 	}
 }
 
