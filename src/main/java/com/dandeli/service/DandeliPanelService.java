@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import com.dandeli.model.AdverticementBean;
 import com.dandeli.model.BannerListBean;
 import com.dandeli.model.EmergencyContactBean;
+import com.dandeli.model.ResortHomeStayBean;
 import com.dandeli.repository.AdverticementRep;
 import com.dandeli.repository.BannerListRep;
 import com.dandeli.repository.EmergencyContactRep;
+import com.dandeli.repository.ResortHomeStayRep;
 
 @Service
 @Transactional
@@ -26,6 +28,9 @@ public class DandeliPanelService {
 	
 	@Autowired
 	public EmergencyContactRep emergencyRep;
+	
+	@Autowired
+	public ResortHomeStayRep resorthomeStayRep;
 	
 	/*---------------------BANNER APIS --------------------*/
 
@@ -69,5 +74,20 @@ public class DandeliPanelService {
 	public void deleteEmergencyContactList(int id) {
 		emergencyRep.deleteById(id);
 	}
+	
+	/*---------------------RESORT HOME STAY APIS --------------------*/
+	
+	public List<ResortHomeStayBean> getAllResortHomeStayList() {
+		return resorthomeStayRep.findAll();
+	}
+	
+	public void saveOrUpdateResortHomeStayList(ResortHomeStayBean homestaylist) {
+		resorthomeStayRep.save(homestaylist);
+	} 
+	
+	public void deleteResortHomeStayList(int id) {
+		resorthomeStayRep.deleteById(id);
+	}
+
 }
 

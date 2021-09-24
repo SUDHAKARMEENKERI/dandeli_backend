@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dandeli.model.AdverticementBean;
 import com.dandeli.model.BannerListBean;
 import com.dandeli.model.EmergencyContactBean;
+import com.dandeli.model.ResortHomeStayBean;
 import com.dandeli.service.DandeliPanelService;
 
 @RestController
@@ -98,4 +99,29 @@ public class DandeliPanelController {
 	private void EmergencyContactDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteAdverticementList(id);
 	}
+	
+	/*---------------------RESORT HOME STAY APIS --------------------*/
+
+	@GetMapping("/getAllResortHomeStaylist")  
+	private List<ResortHomeStayBean> getAllResortHomeStay()   
+	{  
+		return dandeli_service.getAllResortHomeStayList();  
+	}
+
+	@PostMapping("/addResortHomeStay")
+	private int addResortHomeStayList(@RequestBody ResortHomeStayBean resortlist) {
+		dandeli_service.saveOrUpdateResortHomeStayList(resortlist);
+		return resortlist.getId();
+	}
+	
+	@PutMapping("/updateResortHomeStayt")
+	private ResortHomeStayBean updateResortHomeStay(@RequestBody ResortHomeStayBean resortlist) {
+		dandeli_service.saveOrUpdateResortHomeStayList(resortlist);
+		return resortlist;
+	}
+	@DeleteMapping("/deleteResortHomeStayById/{id}")
+	private void resortHomeStayDeleteById(@PathVariable("id") int id) {
+		dandeli_service.deleteResortHomeStayList(id);
+	}
+	
 }
