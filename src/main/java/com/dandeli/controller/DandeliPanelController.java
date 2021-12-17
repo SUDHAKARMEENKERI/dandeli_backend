@@ -24,16 +24,15 @@ import com.dandeli.service.DandeliPanelService;
 @CrossOrigin
 
 public class DandeliPanelController {
-	
+
 	@Autowired
 	public DandeliPanelService dandeli_service;
-	
+
 	/*---------------------BANNER APIS --------------------*/
-	
-	@GetMapping("/getBannerlist")  
-	private List<BannerListBean> getAllBannerList()   
-	{  
-		return dandeli_service.getAllBannerList();  
+
+	@GetMapping("/getBannerlist")
+	private List<BannerListBean> getAllBannerList() {
+		return dandeli_service.getAllBannerList();
 	}
 
 	@PostMapping("/addBanner")
@@ -41,23 +40,23 @@ public class DandeliPanelController {
 		dandeli_service.saveOrUpdateBannerList(bannerData);
 		return bannerData.getId();
 	}
-	
+
 	@PutMapping("/updateBanner")
 	private BannerListBean updateBanner(@RequestBody BannerListBean bannerData) {
 		dandeli_service.saveOrUpdateBannerList(bannerData);
 		return bannerData;
 	}
+
 	@DeleteMapping("/deleteBannerById/{id}")
 	private void BannerDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteBannerList(id);
 	}
-	
+
 	/*---------------------ADVERTICEMENT APIS --------------------*/
-	
-	@GetMapping("/getAdverticementlist")  
-	private List<AdverticementBean> getAllAdverticement()   
-	{  
-		return dandeli_service.getAllAdverticementList();  
+
+	@GetMapping("/getAdverticementlist")
+	private List<AdverticementBean> getAllAdverticement() {
+		return dandeli_service.getAllAdverticementList();
 	}
 
 	@PostMapping("/addAdverticement")
@@ -65,23 +64,23 @@ public class DandeliPanelController {
 		dandeli_service.saveOrUpdateAdverticementList(adverticementData);
 		return adverticementData.getId();
 	}
-	
+
 	@PutMapping("/updateAdverticement")
 	private AdverticementBean updateBanner(@RequestBody AdverticementBean adverticementData) {
 		dandeli_service.saveOrUpdateAdverticementList(adverticementData);
 		return adverticementData;
 	}
+
 	@DeleteMapping("/deleteAdverticementById/{id}")
 	private void AdverticementDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteAdverticementList(id);
 	}
-	
+
 	/*---------------------Emergency Contact APIS --------------------*/
-	
-	@GetMapping("/getAllEmergencyContactlist")  
-	private List<EmergencyContactBean> getAllEmergencyContact()   
-	{  
-		return dandeli_service.getAllEmergencyContactList();  
+
+	@GetMapping("/getAllEmergencyContactlist")
+	private List<EmergencyContactBean> getAllEmergencyContact() {
+		return dandeli_service.getAllEmergencyContactList();
 	}
 
 	@PostMapping("/addEmergencyContact")
@@ -89,23 +88,23 @@ public class DandeliPanelController {
 		dandeli_service.saveOrUpdateEmergencyContactList(emergencylist);
 		return emergencylist.getId();
 	}
-	
+
 	@PutMapping("/updateEmergencyContact")
 	private EmergencyContactBean updateEmergencyContact(@RequestBody EmergencyContactBean emergencylist) {
 		dandeli_service.saveOrUpdateEmergencyContactList(emergencylist);
 		return emergencylist;
 	}
+
 	@DeleteMapping("/deleteEmergencyContactById/{id}")
 	private void EmergencyContactDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteAdverticementList(id);
 	}
-	
+
 	/*---------------------RESORT HOME STAY APIS --------------------*/
 
-	@GetMapping("/getAllResortHomeStaylist")  
-	private List<ResortHomeStayBean> getAllResortHomeStay()   
-	{  
-		return dandeli_service.getAllResortHomeStayList();  
+	@GetMapping("/getAllResortHomeStaylist")
+	private List<ResortHomeStayBean> getAllResortHomeStay() {
+		return dandeli_service.getAllResortHomeStayList();
 	}
 
 	@PostMapping("/addResortHomeStay")
@@ -113,15 +112,16 @@ public class DandeliPanelController {
 		dandeli_service.saveOrUpdateResortHomeStayList(resortlist);
 		return resortlist.getId();
 	}
-	
+
 	@PutMapping("/updateResortHomeStayt")
 	private ResortHomeStayBean updateResortHomeStay(@RequestBody ResortHomeStayBean resortlist) {
 		dandeli_service.saveOrUpdateResortHomeStayList(resortlist);
 		return resortlist;
 	}
+
 	@DeleteMapping("/deleteResortHomeStayById/{id}")
 	private void resortHomeStayDeleteById(@PathVariable("id") int id) {
 		dandeli_service.deleteResortHomeStayList(id);
 	}
-	
+
 }
