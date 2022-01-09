@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="dandeliList")
+@Table(name="danliOfficelist")
 public class DandeliListingBean {
 
 	@Id
