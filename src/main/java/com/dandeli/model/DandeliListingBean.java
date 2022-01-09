@@ -25,7 +25,7 @@ public class DandeliListingBean {
 	public String coverPhoto;
 	public ArrayList galleries;
 	public ArrayList galleriesNotification;
-	public String blogLink;
+	public ArrayList blogLink;
 	public ArrayList officeTiming;
 	public String otherDetails;
 	
@@ -34,7 +34,7 @@ public class DandeliListingBean {
 	}
 
 	public DandeliListingBean(int id, String name, String category, ArrayList email, ArrayList contactNo, ArrayList address,
-			ArrayList weblink, String logo, String coverPhoto, ArrayList galleries, ArrayList galleriesNotification, String blogLink,
+			ArrayList weblink, String logo, String coverPhoto, ArrayList galleries, ArrayList galleriesNotification, ArrayList blogLink,
 			ArrayList officeTiming, String otherDetails) {
 		super();
 		this.id = id;
@@ -97,7 +97,7 @@ public class DandeliListingBean {
 		return galleriesNotification;
 	}
 
-	public String getBlogLink() {
+	public ArrayList getBlogLink() {
 		return blogLink;
 	}
 
@@ -153,7 +153,7 @@ public class DandeliListingBean {
 		this.galleriesNotification = galleriesNotification;
 	}
 
-	public void setBlogLink(String blogLink) {
+	public void setBlogLink(ArrayList blogLink) {
 		this.blogLink = blogLink;
 	}
 
